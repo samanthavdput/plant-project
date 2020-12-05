@@ -9,6 +9,10 @@ const logger = require('morgan');
 const path = require('path');
 
 const app = express();
+//     |
+//     |-----------------------------|
+// use session here:                 V
+require('./configs/session.config')(app);
 
 // require database configuration
 require('./configs/db.config');
@@ -27,12 +31,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Plants - Module 2 Project';
 
 // const index = require('./routes/index');
 // app.use('/', index);
 //      |  |  |
 //      V  V  V
 app.use('/', require('./routes/index.routes'));
+
+const authRouter = require('./routes/auth.routes');
+app.use('/', authRouter);
 
 module.exports = app;
