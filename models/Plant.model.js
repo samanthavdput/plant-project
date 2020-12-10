@@ -3,7 +3,7 @@ const { Schema, model } = mongoose;
 
 const plantSchema = new Schema(
   {
-    commonName: String,
+    name: String,
     plantCare: String,
     placement: String,
     observations: String,
@@ -15,4 +15,4 @@ const plantSchema = new Schema(
   }
 );
 
-module.exports = model('Model', plantSchema);
+module.exports = model('Plant', plantSchema);

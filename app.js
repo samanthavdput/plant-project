@@ -42,4 +42,7 @@ app.use('/', require('./routes/index.routes'));
 const authRouter = require('./routes/auth.routes');
 app.use('/', authRouter);
 
+const plantsRoutes = require('./routes/plant.routes');
+app.use('/', plantsRoutes);
+
 module.exports = app;

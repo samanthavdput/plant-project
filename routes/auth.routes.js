@@ -7,6 +7,7 @@ const saltRounds = 10;
 const User = require('../models/User.model');
 const mongoose = require('mongoose');
 
+
 router.get('/signup', (req, res) => res.render('auth/signup'));
  
 // .post() route ==> to process form data
@@ -83,14 +84,6 @@ router.post('/login', (req, res, next) => {
 
 router.get('/userProfile', (req, res) => {
   res.render('users/user-profile', { userInSession: req.session.currentUser });
-});
-
-router.get('/plantList', (req, res) => {
-  res.render('users/public-list', { userInSession: req.session.currentUser });
-});
-
-router.get('/create', (req, res) => {
-  res.render('users/create-plant', { userInSession: req.session.currentUser });
 });
 
 router.post('/logout', (req, res) => {

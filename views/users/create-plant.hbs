@@ -1,6 +1,28 @@
 {{#if userInSession}}
     <h2>Welcome, {{ userInSession.username }}!</h2>
-    <p>You can create a new plant here soon</p>
+    <h2>Create a plant</h2>
+<div class="row">
+  <div class="col-md-6">
+    <form action="/plants/create" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="name-input">Name:</label>
+        <input type="text" name="name" id="name-input" class="form-control" />
+      </div>
+ 
+      <div class="form-group">
+        <label for="plantCare-input">Plant Care:</label>
+        <textarea name="plantCare" id="plantCare-input" cols="30" rows="4" class="form-control"> </textarea>
+      </div>
+ 
+      <div class="form-group">
+        <label for="image-input">Image:</label>
+        <input type="file" name="image" id="image-input" class="form-control-file" />
+      </div>
+ 
+      <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+  </div>
+</div>
     <button>
         <a href="/userProfile">Reload the page</a>
     </button>
