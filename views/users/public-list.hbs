@@ -5,11 +5,11 @@
   {{#each plantsfromDB}}
     <div class="col-md-4 mb-5">
       <div class="card" style="width: 18rem;">
-        <img src="{{imageUrl}}" class="card-img-top" alt="{{commonName}}">
+        <img src="{{imageUrl}}" class="card-img-top" alt="{{name}}">
         <div class="card-body">
-          <h5 class="card-title">{{commonName}}</h5>
+          <h5 class="card-title">{{name}}</h5>
           <p class="card-text">{{plantCare}}</p>
-          <a href="/plants/{{id}}/edit" class="btn btn-primary">Edit</a>
+          <a href="/plants/{{_id}}/edit" class="btn btn-primary">Edit</a>
           <form action="/plants/{{_id}}/delete" method="POST">
     <button type="submit">Delete this Plant</button>
 </form>
@@ -23,13 +23,26 @@
   <hr />
 </div> --}}
 
+{{#if userInSession}}
+
+<h1>Your plants</h1>
+
 {{#each plantsfromDB}}
-<p>{{name}}</p>
-<p>{{plantCare}}</p>
-<p>{{plantCare}}</p>
+<img src="{{imageUrl}}">
+<p>name: {{name}}</p>
+<p>Care: {{plantCare}}</p>
+<p>Placement: {{placement}}</p>
+<p>Observations: {{observations}}</p>
+
 <a href="/plants/{{_id}}">More about this plant</a>
 <a href="/plants/{{_id}}/edit">Edit</a>
 <form action="/plants/{{_id}}/delete" method="POST">
     <button type="submit">Delete this plant</button>
 </form>
 {{/each}}
+
+<a href="/userProfile">Back to user profile</a>
+
+{{else}}
+    <p>Still no logged in user, sorry!</p>
+{{/if}}

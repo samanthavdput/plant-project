@@ -1,8 +1,28 @@
 {{#if userInSession}}
     <h2>Welcome, {{ userInSession.username }}!</h2>
-    <p>You can edit a plant here soon</p>
+    <h2>Edit the plant information: </h2>
+ 
+<form action="/plants/{{plantToEdit._id}}/edit" method="post">
+ 
+  <label for="name-input">Name:</label>
+  <input type="text" name="name" id="name-input" value="{{plantToEdit.name}}" />
+
+    <label for="name-input">Plant Care:</label>
+  <input type="text" name="plantCare" id="plantCare-input" value="{{plantToEdit.plantCare}}" />
+
+    <label for="name-input">Placement:</label>
+  <input type="text" name="placement" id="placement-input" value="{{plantToEdit.placement}}" />
+
+      <label for="name-input">Observations:</label>
+  <input type="text" name="observations" id="observations-input" value="{{plantToEdit.observations}}" />
+
+    <label for="image-input">Image:</label>
+    <input type="file" name="image" id="image-input" value="{{plantToEdit.imageUrl}}" />
+ 
+  <button type="submit">Save changes</button>
+</form>
     <button>
-        <a href="/userProfile">Reload the page</a>
+        <a href="/userProfile">back to profile page</a>
     </button>
 {{else}}
     <p>Still no logged in user, sorry!</p>
