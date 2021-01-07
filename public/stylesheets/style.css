@@ -1,8 +1,152 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Redressed&display=swap');
+
+.submit {
+  cursor: pointer;
+    border-radius: 5em;
+    color: #fff;
+    background: linear-gradient(to right, #8bb027, #36961e);
+    border: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-family: 'Ubuntu', sans-serif;
+    margin-left: 35%;
+    font-size: 13px;
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+    margin-bottom: 2%;
+  }
+
+.container
+{
+	margin: 0px auto;
+  width: 1200px;
+  height: 880px;
 }
 
-a {
-  color: #00B7FF;
+.card {
+  margin: 5%;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+  border-radius: 5%;
+}
+
+.card img {
+  height: 200px;
+  object-fit: scale-down;
+}
+
+html,body{
+  background-color: #c9e7be;
+  background-image: url('https://wallpapercave.com/wp/wp5247720.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  font-family: 'Ubuntu', sans-serif;
+  }
+
+h1, h2 {
+  font-family: 'Redressed', cursive;
+  color: #32352e;
+  font-weight: bold;
+  position: relative;
+  text-align: center;
+}
+
+a
+{
+	color: #d4ebcb;
+}
+
+a:hover
+{
+  color: #ffffff;
+}
+
+.main {
+  background-color: #FFFFFF;
+  height: auto;
+  width: 400px;
+  margin: 7em auto;
+  padding-bottom: 5%;
+  border-radius: 1.5em;
+  box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+}
+
+.sign {
+  padding-top: 40px;
+  color: #aaec73;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+  font-size: 23px;
+}
+
+.un {
+width: 76%;
+color: rgb(38, 50, 56);
+font-weight: 700;
+font-size: 14px;
+letter-spacing: 1px;
+background: rgba(136, 126, 126, 0.04);
+padding: 10px 20px;
+border: none;
+border-radius: 20px;
+outline: none;
+box-sizing: border-box;
+border: 2px solid rgba(0, 0, 0, 0.02);
+margin-bottom: 50px;
+margin-left: 46px;
+text-align: center;
+margin-bottom: 27px;
+font-family: 'Ubuntu', sans-serif;
+}
+
+form.form1 {
+  padding-top: 40px;
+}
+
+.pass {
+      width: 76%;
+color: rgb(38, 50, 56);
+font-weight: 700;
+font-size: 14px;
+letter-spacing: 1px;
+background: rgba(136, 126, 126, 0.04);
+padding: 10px 20px;
+border: none;
+border-radius: 20px;
+outline: none;
+box-sizing: border-box;
+border: 2px solid rgba(0, 0, 0, 0.02);
+margin-bottom: 50px;
+margin-left: 46px;
+text-align: center;
+margin-bottom: 27px;
+font-family: 'Ubuntu', sans-serif;
+}
+
+.un:focus, .pass:focus {
+  border: 2px solid rgba(0, 0, 0, 0.18) !important;
+  
+}
+
+/* .forgot {
+  text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+  color: #cde7be;
+  padding-top: 15px;
+} */
+
+button {
+  text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+  color: #484e3f;
+}
+
+@media (max-width: 600px) {
+  .main {
+      border-radius: 0px;
+  }
+
+
+p
+{
+	line-height: 180%;
 }

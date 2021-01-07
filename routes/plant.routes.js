@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Plant = require('../models/Plant.model');
+const User = require('../models/User.model');
 const mongoose = require('mongoose');
 
 // ********* require fileUploader in order to use it *********
@@ -16,6 +17,19 @@ router.get('/plants', (req, res) => {
   .catch((err) => console.error("Error getting the plants", err));
 });
 
+router.get('/your-plants', (req, res) => {
+  console.log(".....");
+  console.log(req.session.currentUser._id);
+  User
+   .findById(req.session.currentUser._id)
+   .populate("plants") // key to populate
+   .then(user => {
+      console.log(user);
+      res.render('users/private-list', { userInSession: req.session.currentUser, plantsfromUser: user.plants });
+   })
+   .catch((err) => console.error("Error getting the plants", err));
+  });
+
 
 router.get('/plants/create', (req, res) => {
   res.render('users/create-plant', { userInSession: req.session.currentUser });
@@ -26,8 +40,9 @@ router.post("/plants/create", fileUploader.single('image'), (req, res) => {
   Plant.create({ name, plantCare, placement, observations, imageUrl: req.file.path })
     .then((newPlant) => {
       console.log("New Plant", newPlant);
-      res.redirect("/plants");
+      return User.findByIdAndUpdate(req.session.currentUser._id, {$push:{plants: newPlant._id}})
     })
+    .then( () => res.redirect("/your-plants") )
     .catch((err) => {
       console.log("error creating new Plant:", err);
       res.redirect("/plants/create", { userInSession: req.session.currentUser });

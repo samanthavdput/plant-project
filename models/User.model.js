@@ -16,6 +16,10 @@ const userSchema = new Schema(
       lowercase: true,
       trim: true
     },
+    plants: [{
+      type: Schema.Types.ObjectId,
+      ref: "Plant"
+   }],
     passwordHash: {
       type: String,
       required: [true, 'Password is required.']

@@ -10,24 +10,43 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
 
-  <body>
-  <nav>
-    <ul>
-        <li id="to-left">
-          <a href="/">Home</a> <span> | </span>
-          <a href="/signup">Signup</a> <span> | </span>
-          <a href="/login">Login</a> <span> | </span>
-          <form id="logout-form" action="/logout" method="POST">
-            <button>Logout</button>
-          </form>
-        </li>
-    </ul>
-  </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand">Plants</a>
 
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/signup">Signup</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Login</a>
+      </li>
+    </ul>
+    {{#if userInSession}}
+      <button class="submit" type="submit" action="/userProfile">Profile</button>
+
+    <form form id="logout-form" class="form-inline my-2 my-lg-0" action="/logout" method="POST">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+    </form>
+    {{/if}}
+  </div>
+</nav>
 
     <div class="container">
       {{{body}}}
     </div>
+
+    			<footer id="footer">
+				<div class="copyright">
+					&copy; by Samantha van der Put</a>
+				</div>
+			</footer>
 
     <script src="/javascripts/script.js"></script>
   </body>

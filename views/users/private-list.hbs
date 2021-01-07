@@ -1,20 +1,27 @@
 {{#if userInSession}}
-<div class="main">
-    <h2>Welcome to your profile page, {{ userInSession.username }}!</h2>
 
-    <button type="submit" class="submit" align="center">
-        <a href="/plants/create">Create a new plant</a>
-    </button>
-
-    <button type="submit" class="submit" align="center">
-        <a href="/plants">Your plants</a>
-    </button>
-
-    <button type="submit" class="submit" align="center">
-        <a href="/">Back to Homepage</a>
-    </button>
+<div class="container">
+  <h1>Your Plants</h1>
+  <div class="row">
+      {{#each plantsfromUser}} 
+        <div class="col-md-4">
+  <div class="card">
+    <img class="card-img-top" src="{{imageUrl}}" alt="{{name}}"/>
+    <div class="card-body">
+      <h5 class="card-title">{{name}}</h5>
+      <a href="/plants/{{_id}}">More about this plant</a>
+      <a href="/plants/{{_id}}/edit">Edit</a>
+      <form action="/plants/{{_id}}/delete" method="POST">
+        <button type="submit" class="submit">Delete this plant</button>
+      </form>
+    </div>
+  </div>
+</div>
+      {{/each}}
+  </div>
+</div>
 {{else}}
-    <p>You need to be logged in to acces the user profile! </p>
+    <h2>You need to login to see your plants!</h2>
 
       <div class="main">
     <form action="/login" method="POST">
@@ -31,5 +38,3 @@
     </form>
   </div>
 {{/if}}
-  </div>
-</div>
