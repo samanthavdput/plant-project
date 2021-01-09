@@ -8,7 +8,7 @@
 <br>
 <a href="/plants">Back</a> --}}
 
-{{#if userInSession}}
+{{!-- {{#if userInSession}} --}}
 <div class="container">
   <h1>{{plantDetails.name}}</h1>
         <div class="col-md-4">
@@ -29,7 +29,7 @@
 
 <a href="/plants">Back</a>
 
-{{else}}
+{{!-- {{else}} --}}
     <p>You need to be logged in to acces the user profile! </p>
 
       <div class="main">
@@ -40,4 +40,4 @@
       <input type="password" name="password" id="input-password" input class="pass" align="center" placeholder="Password" required>
       <button type="submit" class="submit" align="center">Sign in</button>
       {{!-- <p class="forgot" align="center"><a href="#">Forgot Password?</p> --}}
-{{/if}}
+{{!-- {{/if}} --}}

@@ -1,27 +1,26 @@
 {{#if userInSession}}
-    <h2>Welcome, {{ userInSession.username }}!</h2>
-    <h2>Edit the plant information: </h2>
+<div class="main">
+    <p class="sign" align="center" >Edit the plant information: </p>
  
 <form action="/plants/{{plantToEdit._id}}/edit" method="post">
  
-  <label for="name-input">Name:</label>
-  <input type="text" name="name" id="name-input" value="{{plantToEdit.name}}" />
+  
+  <input class="un" align="center" placeholder="Name" type="text" name="name" id="name-input" value="{{plantToEdit.name}}" />
 
-    <label for="name-input">Plant Care:</label>
-  <input type="text" name="plantCare" id="plantCare-input" value="{{plantToEdit.plantCare}}" />
 
-    <label for="name-input">Placement:</label>
-  <input type="text" name="placement" id="placement-input" value="{{plantToEdit.placement}}" />
+  <input class="un" align="center" placeholder="Plant Care" type="text" name="plantCare" id="plantCare-input" value="{{plantToEdit.plantCare}}" />
 
-      <label for="name-input">Observations:</label>
-  <input type="text" name="observations" id="observations-input" value="{{plantToEdit.observations}}" />
 
-    <label for="image-input">Image:</label>
-    <input type="file" name="image" id="image-input" value="{{plantToEdit.imageUrl}}" />
+  <input class="un" align="center" placeholder="Placement" type="text" name="placement" id="placement-input" value="{{plantToEdit.placement}}" />
+
+
+  <input class="un" align="center" placeholder="Observations" type="text" name="observations" id="observations-input" value="{{plantToEdit.observations}}" />
+
+    <input class="un" align="center" placeholder="Image" type="file" name="image" id="image-input" value="{{plantToEdit.imageUrl}}" />
  
-  <button type="submit">Save changes</button>
+  <button type="submit" class="submit">Save changes</button>
 </form>
-    <button>
+    <button class="submit">
         <a href="/userProfile">back to profile page</a>
     </button>
 {{else}}
@@ -42,3 +41,4 @@
     </form>
   </div>
 {{/if}}
+</div>
