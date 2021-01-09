@@ -10,10 +10,6 @@
     <div class="card-body">
       <h5 class="card-title">{{name}}</h5>
       <a href="/plants/{{_id}}">More about this plant</a>
-      <a href="/plants/{{_id}}/edit">Edit</a>
-      <form action="/plants/{{_id}}/delete" method="POST">
-        <button type="submit" class="submit">Delete this plant</button>
-      </form>
     </div>
   </div>
 </div>
@@ -21,7 +17,7 @@
   </div>
 </div>
 {{else}}
-    <h2>You need to login to see your plants!</h2>
+    <h2>You need to login to see the plants!</h2>
 
       <div class="main">
     <form action="/login" method="POST">
