@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require('mongoose');
 
 const Plant = require('../models/Plant.model');
 const User = require('../models/User.model');
-const mongoose = require('mongoose');
 
-// ********* require fileUploader in order to use it *********
+
+// require fileUploader in order to use it
 const fileUploader = require('../configs/cloudinary.config');
 
+// Get plant list
 router.get('/plants', (req, res) => {
   Plant.find()
     .then((plantsfromDB) => {
@@ -17,20 +19,20 @@ router.get('/plants', (req, res) => {
   .catch((err) => console.error("Error getting the plants", err));
 });
 
+// Get user's plant list
 router.get('/your-plants', (req, res) => {
   console.log(".....");
   console.log(req.session.currentUser._id);
   User
    .findById(req.session.currentUser._id)
-   .populate("plants") // key to populate
+   .populate("plants")
    .then(user => {
-      console.log(user);
       res.render('users/private-list', { userInSession: req.session.currentUser, plantsfromUser: user.plants });
    })
    .catch((err) => console.error("Error getting the plants", err));
   });
 
-
+//Create plants
 router.get('/plants/create', (req, res) => {
   res.render('users/create-plant', { userInSession: req.session.currentUser });
 });
@@ -49,7 +51,7 @@ router.post("/plants/create", fileUploader.single('image'), (req, res) => {
     });
 });
 
-/* GET Plant Details page by Id*/
+// GET Plant Details page by Id
 router.get("/plants/:id", (req, res, next) => {
   const id = req.params.id;
   Plant.findById(id)

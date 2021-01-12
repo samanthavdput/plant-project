@@ -3,38 +3,39 @@
 <div class="container">
   <h1>Your Plants</h1>
   <div class="row">
-      {{#each plantsfromUser}} 
-        <div class="col-md-4">
-  <div class="card">
-    <img class="card-img-top" src="{{imageUrl}}" alt="{{name}}"/>
-    <div class="card-body">
-      <h5 class="card-title">{{name}}</h5>
-      <a href="/plants/{{_id}}">More about this plant</a>
-      <a href="/plants/{{_id}}/edit">Edit</a>
-      <form action="/plants/{{_id}}/delete" method="POST">
-        <button type="submit" class="submit">Delete this plant</button>
-      </form>
+    {{#each plantsfromUser}}
+    <div class="col-md-4">
+      <div class="card">
+        <img class="card-img-top" src="{{imageUrl}}" alt="{{name}}" />
+        <div class="card-body">
+          <h5 class="card-title">{{name}}</h5>
+          <a href="/plants/{{_id}}">More about this plant</a>
+          <a href="/plants/{{_id}}/edit">Edit</a>
+          <form action="/plants/{{_id}}/delete" method="POST">
+            <button type="submit" class="submit">Delete this plant</button>
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-      {{/each}}
+    {{/each}}
   </div>
 </div>
 {{else}}
-    <h2>You need to login to see your plants!</h2>
+<h2>You need to login to see your plants!</h2>
 
-      <div class="main">
-    <form action="/login" method="POST">
+<div class="main">
+  <form action="/login" method="POST">
     <p class="sign" align="center">Login</p>
     <form class="form1">
-      <input type="email" id="input-email" name="email" class="un " align="center" placeholder="Email" required >
-      <input type="password" name="password" id="input-password" input class="pass" align="center" placeholder="Password" required>
+      <input type="email" id="input-email" name="email" class="un " align="center" placeholder="Email" required>
+      <input type="password" name="password" id="input-password" input class="pass" align="center"
+        placeholder="Password" required>
       <button type="submit" class="submit" align="center">Sign in</button>
       {{!-- <p class="forgot" align="center"><a href="#">Forgot Password?</p> --}}
 
-    {{#if errorMessage}}
+      {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
-    {{/if}}
+      {{/if}}
     </form>
-  </div>
+</div>
 {{/if}}

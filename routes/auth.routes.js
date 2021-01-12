@@ -1,16 +1,13 @@
 const { Router } = require('express');
 const router = new Router();
-
 const bcryptjs = require('bcryptjs');
 const saltRounds = 10;
-
 const User = require('../models/User.model');
 const mongoose = require('mongoose');
 
-
+// signup
 router.get('/signup', (req, res) => res.render('auth/signup'));
  
-// .post() route ==> to process form data
 router.post('/signup', (req, res, next) => {
   const { username, email, password } = req.body;
 
